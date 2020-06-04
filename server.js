@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const url = process.env.PROD_MONGODB
 console.log(url)
 const app = express()
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({extended: true}))
 MongoClient.connect(url, (err, database) => {
