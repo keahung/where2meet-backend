@@ -5,6 +5,7 @@ var ObjectID = require('mongodb').ObjectID
 // db  : database
 module.exports = function(app, db) {
     app.get('/notes/:id', (req, res) => {
+        console.log('received get')
         const details = { '_id' : new ObjectID(req.params.id) }
         db.collection('notes').findOne(details, (err, item) => {
             if (err) {
@@ -17,6 +18,7 @@ module.exports = function(app, db) {
 
     app.post('/notes', (req, res) => {
         // Create note here
+        console.log('received post')
         const note =
         {
             text  : req.body.body,
@@ -34,6 +36,7 @@ module.exports = function(app, db) {
     })
 
     app.delete('/notes/:id', (req, res) => {
+        console.log('received delete')
         const details = { '_id' : new ObjectID(req.params.id) }
         db.collection('notes').remove(details, (err, item) => {
             if (err) {
@@ -45,6 +48,7 @@ module.exports = function(app, db) {
     })
 
     app.put('/notes/:id', (req, res) => {
+        console.log('received put')
         const details = { '_id' : new ObjectID(req.params.id) }
         const note =
         {
