@@ -2,6 +2,7 @@ const express = require('express')
 const MongoClient = require('mongodb').MongoClient
 const bodyParser = require('body-parser')
 const url = process.env.PROD_MONGODB
+console.log(url)
 const app = express()
 const port = 8000;
 
